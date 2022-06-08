@@ -1,0 +1,220 @@
+:root {
+    font-size: 62.5%;
+    --bg-main: linear-gradient(135deg, rgba(49, 49, 49,0.1) 0%, rgba(49, 49, 49,0.1) 12.5%,rgba(76, 76, 76,0.1) 12.5%, rgba(76, 76, 76,0.1) 25%,rgba(102, 102, 102,0.1) 25%, rgba(102, 102, 102,0.1) 37.5%,rgba(129, 129, 129,0.1) 37.5%, rgba(129, 129, 129,0.1) 50%,rgba(155, 155, 155,0.1) 50%, rgba(155, 155, 155,0.1) 62.5%,rgba(182, 182, 182,0.1) 62.5%, rgba(182, 182, 182,0.1) 75%,rgba(208, 208, 208,0.1) 75%, rgba(208, 208, 208,0.1) 87.5%,rgba(235, 235, 235,0.1) 87.5%, rgba(235, 235, 235,0.1) 100%),linear-gradient(45deg, rgba(5, 5, 5,0.1) 0%, rgba(5, 5, 5,0.1) 12.5%,rgba(39, 39, 39,0.1) 12.5%, rgba(39, 39, 39,0.1) 25%,rgba(73, 73, 73,0.1) 25%, rgba(73, 73, 73,0.1) 37.5%,rgba(107, 107, 107,0.1) 37.5%, rgba(107, 107, 107,0.1) 50%,rgba(141, 141, 141,0.1) 50%, rgba(141, 141, 141,0.1) 62.5%,rgba(175, 175, 175,0.1) 62.5%, rgba(175, 175, 175,0.1) 75%,rgba(209, 209, 209,0.1) 75%, rgba(209, 209, 209,0.1) 87.5%,rgba(243, 243, 243,0.1) 87.5%, rgba(243, 243, 243,0.1) 100%),linear-gradient(90deg, #FFF,#FFF);
+
+    --hue: 196;
+    --primary-color: hsl(var(--hue), 100%, 26%);
+    --brand-light: hsl(var(--hue), 100%, 36%);
+    --bg-brand-light: hsl(var(--hue), 100%, 36%, 20%);
+    /* RANGE CONFIG */
+	--bg: #e3e4e8;
+	--bgT: #e3e4e800;
+	--fg: #17181c;
+	--inputBg: #fff;
+	--handleBg: #255ff4;
+	--handleDownBg: #0b46da;
+	--handleTrackBg: #5583f6;
+
+}
+
+* {
+    border: 0;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+
+body {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 1.6rem;
+
+    background: var(--bg-main)
+}
+
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main {
+    display: grid;
+    /* align-items: center; */
+    place-items: center;
+} 
+
+.canvas {
+    padding: 0;
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+}
+
+canvas {    
+    border: .5rem solid black;
+    border-radius: 1.5rem;
+    cursor:crosshair;
+}
+
+
+.container{    
+    width: 60rem;
+    height: 22rem;
+    background: var(--bg-brand-light); 
+    margin-top: 1rem;
+
+    border-radius: 3rem;
+
+    display:flex;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container p{
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-top: 1rem;
+}
+
+.buttonSpeed {
+    background: var(--primary-color);
+  
+    border: none;
+    border-radius: 3.8rem;
+  
+    margin-top: 2rem;
+    padding: 1.4rem 3.0rem;
+    width: fit-content;
+    height: 5rem;
+  
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+    gap: 1.6rem;
+   
+    text-decoration: none;
+  
+    transition: background 300ms;
+  }
+  
+  .buttonSpeed:hover {
+    background-color: var(--brand-light);
+  }
+
+
+  /* =======> CHANGE RANGE <======= */
+
+
+.range {
+    margin-top: 4.3rem;
+    height: 6rem;
+    width: 38rem;
+    background-color: rgb(222, 222, 222);
+    border-radius: 2rem;
+    padding: 0 6rem 0 4rem;
+}
+
+.range .sliderValue{
+    position: relative;
+    width: 100%;
+    transform: translateX(-0.5rem);
+}
+
+
+.range .sliderValue span{
+    position: absolute;
+    height: 4.5rem;
+    width: 4.5rem;
+    
+    color: #FFF;
+    font-weight: 500;
+    
+    
+    top: -4.2rem;
+    transform: translateX(-50%) scale(0);
+    transform-origin: bottom;
+    transition: transform 0.3s ease-in-out;
+    line-height: 5rem;
+    z-index: 2;
+    
+}
+
+.range .sliderValue span.show{
+    transform: translateX(-50%) scale(1);
+}
+
+.range .sliderValue span:after{
+    position: absolute;
+    content: "";
+    height: 4.5rem;
+    width: 4.5rem;
+    background: #2299ee;    
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    border: .3rem solid #fff;
+    z-index: -1;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    border-bottom-left-radius: 50%;
+}
+
+
+.range .field{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.range .field .value{
+    position: absolute;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #2299ee;
+}
+
+.range .field .value.left{
+    left: -3.5rem;
+}
+
+.range .field .value.right{
+    right: -4.5rem;
+}
+
+.range .field input {
+    height: 0.5rem;
+    width: 100%;
+    background: #ddd;
+    border-radius: .5rem;
+    outline: none;
+    border: none;
+}
+
+.range .field input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 2rem;
+    width: 2rem;
+    background: #2299ee;
+
+    border-radius: 50%;
+    border: .1rem solid #2299ee;
+    cursor: pointer;
+}
+
+
+
+.range .field input::-moz-range-progress{
+    background: #2299ee;
+}
+

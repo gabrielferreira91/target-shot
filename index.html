@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+            Tiro ao Alvo
+        </title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;600;700&display=swap" rel="stylesheet">
+        
+</head>
+<body>
+    <header>
+        <h1>Programa de Tiro ao Alvo</h1>
+    </header>
+    <main class="main">
+        <div class="canvas">
+            <canvas width="1000" height="600"></canvas>
+        </div>
+        <div class="container">            
+                <p>
+                    Escolha a velocidade desejada (quanto menor, mais rápido):
+                </p>
+                    <div class="range">
+                        <div class="sliderValue">
+                            <span>1000</span>
+                        </div>
+                        <div class="field">
+                            <div class="value left">100</div>
+                            <input class ="inputSpeed" type="range" min="100" max="2000" steps ="100">
+                            <div class="value right">2000</div>
+                        </div>
+                    </div>
+                <button class="buttonSpeed" onclick="startTarget()">Disparar Alvo</button>           
+        </div>
+        
+    </main>
+    <script src="target-shot.js"></script>
+</body>
+</html>
